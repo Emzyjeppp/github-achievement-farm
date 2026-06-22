@@ -1,4 +1,4 @@
-# 🛠️ Git Automation & API Throttling Sandbox
+# 🛠️ DevOps Stress Testing & API Throttling Sandbox
 
 A testing sandbox designed to benchmark, validate, and research automated Git workflows, GitHub CLI (`gh`) scripting behaviors, and API rate-limiting boundaries.
 
