@@ -1,0 +1,28 @@
+name: CI Benchmark Sandbox
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Script Linter
+        run: |
+          echo "Validating benchmarking scripts..."
+          if [ -d "scripts" ]; then
+            echo "Directory 'scripts' exists."
+            for file in scripts/*.sh; do
+              if [ -f "$file" ]; then
+                echo "Linting $file..."
+                bash -n "$file"
+              fi
+            done
+          fi
+          echo "Validation completed successfully!"

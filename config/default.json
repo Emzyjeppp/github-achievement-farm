@@ -1,0 +1,18 @@
+{
+  "sandbox": {
+    "name": "devops-stress-testing",
+    "version": "1.2.0",
+    "description": "Configuration parameters for the DevOps automation benchmark runs",
+    "benchmarks": {
+      "git": {
+        "max_iterations": 100,
+        "clean_temp_branches": true
+      },
+      "api": {
+        "endpoint": "https://api.github.com",
+        "retry_backoff_seconds": 60,
+        "max_retries": 3
+      }
+    }
+  }
+}
