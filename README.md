@@ -26,12 +26,43 @@ This repository serves as an active playground for testing the following enginee
 
 ---
 
+## 📁 Repository Structure
+
+```text
+├── .github/
+│   └── workflows/
+│       └── ci.yml             # Automated CI pipeline for validation
+├── config/
+│   └── default.json          # Benchmark configurations and limits
+├── scripts/
+│   ├── api-stress-test.sh    # CLI API rate-limit analysis utility
+│   └── benchmark-git.sh      # Git local loop performance profiling tool
+├── .gitignore
+└── README.md
+```
+
+---
+
 ## ⚙️ Utilities & Experiments
 
-*   **`yolo-merge` validation:** Simulates hotfix releases by merging PRs instantly without manual intervention.
-*   **`rate-limit-stress` loops:** Evaluates API resilience by pushing multiple branches and merging PRs sequentially using rate-limit back-off logic.
-*   **`bot-attribution` hooks:** Tests collaborative commits with system entities (e.g., `github-actions[bot]`).
-*   **`quickdraw-issue-lifecycles`:** Evaluates API latency and web-hook response times for issue creation and immediate resolution.
+### 1. Git Benchmarks (`scripts/benchmark-git.sh`)
+Profiles the speed of local branch checkout and deletion routines. Evaluates performance bottlenecks over multiple iterations.
+Run the benchmark via:
+```bash
+chmod +x scripts/benchmark-git.sh
+./scripts/benchmark-git.sh
+```
+
+### 2. API Rate Limit Analyzer (`scripts/api-stress-test.sh`)
+Queries GitHub endpoints and parses header responses to check current rate limit capacities and remaining API quotas.
+Run the analyzer via:
+```bash
+chmod +x scripts/api-stress-test.sh
+./scripts/api-stress-test.sh
+```
+
+### 3. Automated CI Pipeline (`.github/workflows/ci.yml`)
+Runs linting and validation on all shell scripts on every pull request or push to the `main` branch to guarantee sandbox integrity.
 
 ---
 
